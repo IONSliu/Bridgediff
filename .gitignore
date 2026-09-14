@@ -1,0 +1,21 @@
+# 系统文件
+.DS_Store
+**/.DS_Store
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# 临时文件
+Untitled
+**/Untitled
+
+# 模型权重（单文件超过 GitHub 100MB 限制，无法上传）
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.safetensors
+*.onnx
