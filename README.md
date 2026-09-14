@@ -34,3 +34,8 @@ The datasets used in our experiments can be obtained from their official reposit
 * DressCode: https://github.com/aimagelab/dress-code
 
 > **Note:** Due to upload size limitations, and because we cannot directly redistribute certain files from the official datasets, some additional files are not included in the current release. For example, the encoder-extracted features required during training and inference will be uploaded separately in a subsequent update. In addition, some data required for training and inference must be obtained directly from the official VITON-HD and DressCode datasets. Please download the corresponding datasets from their official repositories listed above.
+
+## Acknowledgements
+
+Our code is developed based on the excellent [IMAGDressing](https://github.com/muzishen/IMAGDressing) project. We also gratefully acknowledge [IDM-VTON](https://github.com/yisol/IDM-VTON) for their valuable contributions to the virtual try-on community. We sincerely thank the authors of these projects for making their code and models publicly available, which greatly facilitated our research and the development of BridgeDiff.
+
