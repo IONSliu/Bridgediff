@@ -54,6 +54,18 @@ To perform inference with BridgeDiff, run:
 ```bash
 python stage2test.py
 ```
+## TODO List
+
+We are actively organizing and preparing the remaining resources. The following items will be released in future updates:
+
+* [x] Release the Stage 2 training and inference code.
+* [ ] Release all text descriptions used in our experiments.
+* [ ] Release the Stage 1 training/inference code and pretrained weights, which are currently being organized.
+* [ ] Release all pre-extracted features to enable fast and convenient evaluation.
+* [ ] Release a web-based visualization and testing interface.
+* [ ] Release the complete end-to-end training code for both Stage 1 and Stage 2.
+
+
 
 ## Acknowledgements
 
