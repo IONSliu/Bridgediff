@@ -70,5 +70,8 @@ We are actively organizing and preparing the remaining resources. The following 
 
 ## Acknowledgements
 
-Our code is developed based on the excellent [IMAGDressing](https://github.com/muzishen/IMAGDressing) project. We also gratefully acknowledge [IDM-VTON](https://github.com/yisol/IDM-VTON) for their valuable contributions to the virtual try-on community. We would also like to express our sincere gratitude to the authors of CAT-VTON, TryOffDiff, and MGT for making their code and models publicly available. These excellent open-source projects have provided valuable references and resources for our research, greatly facilitating the development and evaluation of BridgeDiff. We sincerely appreciate the efforts of the open-source community and all researchers whose work has contributed to the advancement of virtual try-on and virtual try-off research.
+Our code is developed based on the excellent [IMAGDressing](https://github.com/muzishen/IMAGDressing) project. We also gratefully acknowledge [IDM-VTON](https://github.com/yisol/IDM-VTON) for their valuable contributions to the virtual try-on community.
+
+We would also like to express our sincere gratitude to the authors of [CAT-VTON](https://github.com/Zheng-Chong/CatVTON), [TryOffDiff](https://github.com/rizavelioglu/tryoffdiff), and MGT for making their code and models publicly available. These excellent open-source projects have provided valuable references and resources for our research, greatly facilitating the development and evaluation of BridgeDiff. We sincerely appreciate the efforts of the open-source community and all researchers whose work has contributed to the advancement of virtual try-on and virtual try-off research.
+
 
