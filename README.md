@@ -59,6 +59,7 @@ python stage2test.py
 We are actively organizing and preparing the remaining resources. The following items will be released in future updates:
 
 * [x] Release the Stage 2 training and inference code.
+* [x] Release the Stage 2 pretrained weights for both VITON-HD and DressCode.
 * [ ] Release all text descriptions used in our experiments.
 * [ ] Release the Stage 1 training/inference code and pretrained weights, which are currently being organized.
 * [ ] Release all pre-extracted features to enable fast and convenient evaluation.
