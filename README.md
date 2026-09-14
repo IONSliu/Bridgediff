@@ -18,3 +18,10 @@ This creates a conda environment named `cloth` (Python 3.9, PyTorch 2.1.0 + CUDA
 
 For IP-Adapter, the required pretrained weights `ip-adapter_sd15.bin` can be downloaded from:
 https://huggingface.co/h94/IP-Adapter/blob/main/models/ip-adapter_sd15.bin
+
+## Dataset
+
+The datasets used in our experiments can be obtained from their official repositories:
+
+* VITON-HD: https://github.com/shadow2496/VITON-HD
+* DressCode: https://github.com/aimagelab/dress-code
