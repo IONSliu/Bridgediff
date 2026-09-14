@@ -1,14 +1,9 @@
-# cloth 训练/测试环境（从当前 cloth conda 环境导出）
-# Python 3.9 + PyTorch 2.1.0（CUDA 11.8）
-#
+
 # 安装：
 #   conda env create -f environment.yml
 # 激活：
 #   conda activate cloth
-#
-# 需要本机 NVIDIA 驱动支持 CUDA 11.8。
-# CLIP 原环境装的是本机路径，这里改为官方仓库，别人也能装。
-# 未包含 depthwise-conv2d-implicit-gemm（本机本地编译扩展，换机器装不上）。
+
 
 name: cloth
 channels:
