@@ -16,8 +16,15 @@ conda activate cloth
 
 This creates a conda environment named `cloth` (Python 3.9, PyTorch 2.1.0 + CUDA 11.8). All Python packages are listed in `environment.yml`.
 
-For IP-Adapter, the required pretrained weights `ip-adapter_sd15.bin` can be downloaded from:
-https://huggingface.co/h94/IP-Adapter/blob/main/models/ip-adapter_sd15.bin
+## Pretrained Weights
+
+The pretrained weights of BridgeDiff for both **VITON-HD** and **DressCode** can be downloaded from:
+
+https://huggingface.co/IONSLIU1/Bridgediff-weights
+
+For IP-Adapter, the required pretrained weights `ip-adapter-plus_sd15.bin` can be downloaded from:
+
+https://huggingface.co/h94/IP-Adapter/blob/main/models/ip-adapter-plus_sd15.bin
 
 ## Dataset
 
@@ -25,3 +32,5 @@ The datasets used in our experiments can be obtained from their official reposit
 
 * VITON-HD: https://github.com/shadow2496/VITON-HD
 * DressCode: https://github.com/aimagelab/dress-code
+
+> **Note:** Due to upload size limitations, and because we cannot directly redistribute certain files from the official datasets, some additional files are not included in the current release. For example, the encoder-extracted features required during training and inference will be uploaded separately in a subsequent update. In addition, some data required for training and inference must be obtained directly from the official VITON-HD and DressCode datasets. Please download the corresponding datasets from their official repositories listed above.
