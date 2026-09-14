@@ -34,13 +34,7 @@ logger = get_logger(__name__)
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Simple example of a training script.")
-    parser.add_argument(
-        "--pretrained_model_name_or_path",
-        type=str,
-        default="stable-diffusion-inpainting",
     
-        help="Path to pretrained model or model identifier from huggingface.co/models.",
-    )
     parser.add_argument(
         "--pretrained_model_stage3_name_or_path",
         type=str,
@@ -48,11 +42,7 @@ def parse_args():
     
         help="Path to pretrained model or model identifier from huggingface.co/models.",
     )
-    parser.add_argument("--pretrained_ref_everything_path", 
-    type=str, 
-    default="save_data/stage2inpainting7681e-4/10000/mp_rank_00_model_states.pt", 
-    help="Stage2 pretrained model path."
-    )
+ 
     parser.add_argument(
         "--pretrained_vae_model_path",
         type=str,
@@ -76,7 +66,7 @@ def parse_args():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="save_data/stage3newweizhidresscode",
+        default="",
         help="The output directory where the model predictions and checkpoints will be written.",
     )
   
@@ -159,8 +149,8 @@ def parse_args():
     parser.add_argument(
         "--pretrained_adapter_model_path",
         type=str,
-        default="ip-adapter-plus_sd15.bin",
-        help="Path to pretrained IP-Adapter model file (e.g., ip-adapter-sd15.bin).",
+        default="",
+        help="Path to pretrained IP-Adapter model file (e.g., ip-adapter-plus_sd15.bin).",
     )
     parser.add_argument(
         "--weight_decay",
@@ -230,8 +220,8 @@ def parse_args():
     parser.add_argument(
         "--deepspeed_config_file",
         type=str,
-        default="/home/data/lius2024/IMAGDressing-main/zero_stage2_config.json",
-        help="Path to deepspeed config file.",
+        default="",
+        help="Path to deepspeed config file. IMAGDressing-main/zero_stage2_config.json",
     )
 
     args = parser.parse_args()
@@ -483,15 +473,7 @@ class SD(torch.nn.Module):
                H = H_input // scale
                W_total = W_total_input // scale
                
-               # reshape提取左图：类似 reshaped = combined_flat_row.reshape(B, H, 2*W, C)
-               # extracted = reshaped[:, :, :W, :].reshape(B, H*W, C)
-               #reshaped = cached_hidden_states.reshape(B, H, W_total, C)
-            #   extracted = reshaped[:, :, W_total//2:, :].reshape(B, H * (W_total//2), C)
-              # sa_hidden_states[name] = extracted
-               
-               # 将mask缩放到当前层的分辨率，与sa_hidden_states对应的空间分辨率一致
-               # inshop_mask和mask_latent原始形状: (B, C, H_input, W_single)，例如 (1, 1, 128, 96)
-               # sa_hidden_states对应的空间分辨率: (H, W_single//scale)，因为只提取了左图
+              
                W_single_scaled = W_single // scale
                target_size = (H, W_single_scaled)  # 高度和宽度都按scale缩放
                if inshop_mask is not None:
@@ -513,7 +495,7 @@ class SD(torch.nn.Module):
                    mask_latent_dict[name] = mask_latent_flat
 
                    mask_latent_expanded = mask_latent_flat.unsqueeze(-1)  # (B, H*W, 1)
-                   # 衣服区域（mask=1）保留原始值，其他区域（mask=0）变成0
+           
                    cached_hidden_states = cached_hidden_states * mask_latent_expanded  # (B, H*W, C)
                
                sa_hidden_states[name] = cached_hidden_states
@@ -546,9 +528,7 @@ class SD(torch.nn.Module):
         # Calculate original checksums
         orig_ipa_sum = torch.sum(torch.stack([torch.sum(p) for p in self.ipa_model.parameters()]))
         orig_unet_adapter_sum = torch.sum(torch.stack([torch.sum(p) for p in self.unet_adapter_modules.parameters()]))#加载UNET
-       # orig_unet_adapter1_sum = torch.sum(torch.stack([torch.sum(p) for p in self.unet_adapter_modules1.parameters()]))#随机
-     #   orig_ref_unet_sum = torch.sum(torch.stack([torch.sum(p) for p in self.ref_unet.parameters()]))
-       # orig_ref_ipa_sum = torch.sum(torch.stack([torch.sum(p) for p in self.ref_ipa_model.parameters()]))
+  
         if pretrained_ip_adapter_path is not None:
           #  pretrained_ref_everything_state_dict = torch.load(pretrained_ref_everything_path, map_location="cpu")["module"]
             pretrained_ip_adapter_state_dict = torch.load(pretrained_ip_adapter_path, map_location="cpu")
